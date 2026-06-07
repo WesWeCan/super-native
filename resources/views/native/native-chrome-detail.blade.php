@@ -25,5 +25,20 @@
             <native:text class="text-base text-[#0F172A]">{{ $starred ? '⭐ Starred' : '☆ Not starred' }}</native:text>
         </native:column>
 
+        <native:divider />
+
+        <native:column class="w-full gap-2">
+            <native:text class="text-base font-semibold">Stack on stacked</native:text>
+            <native:text class="text-sm text-gray-500">
+                This screen is already one push deep. Tap below to push a recursive
+                deep-stack screen that can keep pushing copies of itself — Level 1, 2,
+                3… — so you can pile pushes on top of already-stacked pushes.
+            </native:text>
+        </native:column>
+
+        <native:column @press="pushDeeper" class="w-full px-4 py-3 rounded-xl bg-[#A855F7] items-center">
+            <native:text class="text-white font-semibold">Go deeper → Level 1</native:text>
+        </native:column>
+
     </native:column>
 </native:scroll-view>

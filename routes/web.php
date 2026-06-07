@@ -2,10 +2,6 @@
 
 use App\NativeComponents\Animate;
 use App\NativeComponents\Browse;
-use App\NativeComponents\Glass;
-use App\NativeComponents\MailDemo;
-use App\NativeComponents\PerfDemo;
-use App\NativeComponents\RefreshableDemo;
 use App\NativeComponents\ButtonsForm;
 use App\NativeComponents\ComposeTweet;
 use App\NativeComponents\Counter;
@@ -22,6 +18,7 @@ use App\NativeComponents\FacebookCreate;
 use App\NativeComponents\FacebookFeed;
 use App\NativeComponents\FacebookPost;
 use App\NativeComponents\FacebookProfile;
+use App\NativeComponents\Glass;
 use App\NativeComponents\Home;
 use App\NativeComponents\IkeaCart;
 use App\NativeComponents\IkeaHome;
@@ -37,11 +34,15 @@ use App\NativeComponents\Layouts\NativeTabsLayout;
 use App\NativeComponents\Layouts\StackLayout;
 use App\NativeComponents\Layouts\SyncUpTabsLayout;
 use App\NativeComponents\Layouts\TabsLayout;
+use App\NativeComponents\MailDemo;
+use App\NativeComponents\NativeChromeDeep;
 use App\NativeComponents\NativeChromeDemo;
 use App\NativeComponents\NativeChromeDetail;
 use App\NativeComponents\NativeTabsHome;
 use App\NativeComponents\NativeTabsProfile;
+use App\NativeComponents\PerfDemo;
 use App\NativeComponents\Profile;
+use App\NativeComponents\RefreshableDemo;
 use App\NativeComponents\SpotifyArtist;
 use App\NativeComponents\SpotifyHome;
 use App\NativeComponents\SpotifyPlaylist;
@@ -176,13 +177,12 @@ Route::native('/syncup-native/login', SyncUpNativeLogin::class)->name('syncup-na
 
 // ── NavigationStack + Form/Section demo (SwiftUI grouped-form replica) ──
 
-
 // ── Native chrome — NavigationStack-rendered top bar ──
 Route::nativeGroup(NativeStackLayout::class, function () {
     Route::native('/native-chrome', NativeChromeDemo::class)->name('native.chrome');
     Route::native('/native-chrome/detail', NativeChromeDetail::class)->name('native.chrome.detail');
+    Route::native('/native-chrome/deep/{level}', NativeChromeDeep::class)->name('native.chrome.deep');
 });
-
 
 // ── Native chrome — TabView-rendered bottom bar ──
 Route::nativeGroup(NativeTabsLayout::class, function () {

@@ -2,9 +2,11 @@
 
 namespace App\NativeComponents;
 
+use Illuminate\View\View;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
+use Native\Mobile\Edge\Transition;
 
 /**
  * Pushed detail screen — sits on top of `NativeChromeDemo` in the
@@ -40,7 +42,14 @@ class NativeChromeDetail extends NativeComponent
         $this->starred = ! $this->starred;
     }
 
-    public function render(): \Illuminate\View\View
+    /** Push the first recursive deep level — stack on top of this stacked screen. */
+    public function pushDeeper(): void
+    {
+        $this->navigate('/native-chrome/deep/1')
+            ->transition(Transition::SlideFromRight);
+    }
+
+    public function render(): View
     {
         return view('native-chrome-detail');
     }
